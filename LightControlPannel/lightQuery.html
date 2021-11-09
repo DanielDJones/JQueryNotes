@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dan JQeuery Test</title>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
+
+
+    <link rel="stylesheet" href="master.css">
+</head>
+<body>
+<div id="notice-banner" class="notice-banner">
+    <p>Please keep in mind this page is front end only!</p>
+    <button id="notice-btn" type="button">Close Notice</button>
+</div>
+    <div class="container">
+        <h1>Smarthome Lighting Control Pannel</h1>
+        <form action="">
+            <!-- MAIN LIGHT-->
+            <button type="button" class="drawer-header" id="main-light-header">Main Light</button>
+            <div class="drawer" id="main-light-drawer">
+                <label for="main-light">Main Light</label>
+                <input type="color" name="main-light" id="main-light" value="#FFFF00">
+                <label for="main-light-power">Main Power</label>
+                <input type="range" name="main-light-power" id="main-light" value="50">
+            </div>
+            <!-- ACCENT LIGHTS -->
+            <button type="button" class="drawer-header" id="accent-light-header">Accent Pallete</button>
+            <div class="drawer" id="accent-light-drawer">
+                <input type="color" name="accent-light-1" id="accent-light-1" value="#FF0000">
+                <input type="color" name="accent-light-2" id="accent-light-2" value="#FFFF00">
+                <input type="color" name="accent-light-3" id="accent-light-3" value="#00FF00">
+                <input type="color" name="accent-light-4" id="accent-light-4" value="#00FFFF">
+                <input type="color" name="accent-light-5" id="accent-light-5" value="#0000FF">
+                <input type="color" name="accent-light-6" id="accent-light-6" value="#FF00FF">
+            </div>
+            <!-- BUTTONS -->
+            <div class="btn-container">
+                <button type="button" id="update-btn" class="main-btn update-btn">
+                   Update Lighting 
+                </button>
+                <button type="button" class="main-btn save-btn">
+                   Save Preset 
+                </button>
+                <button type="button" class="main-btn load-btn">
+                    Load Preset 
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <script src="master.js"></script> 
+</body>
+</html>

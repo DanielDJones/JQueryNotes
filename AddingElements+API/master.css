@@ -1,0 +1,68 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png) no-repeat center center fixed;
+    object-fit: fill;
+    background-size: cover;
+    /* Prevens banner from blocking content */
+    padding-top: calc(2rem + 100px);
+}
+
+h1 {
+    color: #dddddd;
+    padding: 20px;
+    background: #1c1c1c;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.notice-banner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #dd0000;
+    font-size: 2rem;
+    width: 100vw;
+}
+
+.container {
+    width: 90%;
+    margin: 5px auto;
+}
+
+.drawer {
+    background-color: rgba(221, 221, 221, 0.75);
+    backdrop-filter: blur(4px);
+    padding: 20px;
+    border-radius: 5px;
+
+}
+
+.drawer-header{
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    width: 100%;
+    font-size: 2rem;
+    border: none;
+    box-shadow: none;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-btn {
+    padding: 20px;
+    margin: 10px;
+    background-color: #1c1c1c;
+    color: #dddddd;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dan JQeuery Test</title>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
+
+
+    <link rel="stylesheet" href="master.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>JQuery - Vanilla.js Rosetta Stone</h1>
+        <p class="loose-text">This is brief document outlining some of the differences between vanilla JS and JQuery. To make it easier to translate between the two. <br><br>Please not that some code is taken from other sources and is just for untested reference.</p>
+        <form action="">
+            <!-- Basic Selection -->
+            <button type="button" class="drawer-header" id="basic-selection-header">Basic Selection</button>
+            <div class="drawer" id="basic-selection-drawer">
+                <p>Getting elements on a page. Getting a notice button for example.</p>
+                <p><b> JQuery selections are not live</b>, so if you select all the .drawers for example then add another to the document then the new one will not be selected.</p>
+                <h2>Vanilla js</h2>
+                <pre>
+                    <code class="vanilla">
+//ID ONLY
+
+document.getElementById("notice-btn"); 
+
+
+//Query Selector
+
+document.querySelector("#notice-btn"); 
+                    </code> 
+                </pre>
+                <h2>JQeuery</h2>
+                <pre>
+                    <code>
+$( "#notice-btn" );
+                    </code>
+                </pre>
+                <h2>Vanilla - JQuery Conversion</h2>
+                <pre>
+                    <code>
+//GET ELEMENT
+
+var target = document.getElementById( "target" );
+
+
+//WRAP TARGET INTO A JQUERY OBJ
+
+$( target )
+
+//USE
+$( target ).html("New Inner HTML")
+                    </code>
+                </pre>
+                <h2>Vanilla js multiple</h2>
+                <pre>
+                    <code class="vanilla">
+//NOTICE THE ALL PART OF THE FUNCTION
+
+document.querySelectorAll('.drawer');
+                    </code>
+                </pre>
+                <h2>
+                    JQeuery - multiple
+                </h2>
+                <pre>
+                    <code>
+// DUE TO IT BEING A CLASS IT SELECTS MULTIPLE
+
+$( ".drawers" );
+                    </code>
+                </pre>
+            </div>
+            <!-- -->
+            <button type="button" class="drawer-header" id="for-each-header">For Each</button>
+            <div class="drawer" id="for-each-drawer">
+               <p>In the each function you can use the <b>this</b> keyword in order to get the element. <br>Each can also be used similarly to PHP's foreach($tests as $test){}</p> 
+                <h2>
+                    Vanilla js -Each on page
+                </h2>
+                <pre>
+                    <code class="vanilla">
+var SelectedItems = document.querySelectorAll('.drawer');
+for (var i = 0, len = SelectedItems.length; i < len; i++) {
+    //CODE HERE
+}
+                    </code>
+                </pre>
+                <h2>
+                    JQeuery - Each on page
+                </h2>
+                <pre>
+                    <code>
+$( ".drawer" ).each(function() {
+    $( this ).examplefunction()    
+});
+                    </code>
+                </pre>
+
+                <h2>
+                    JQuery - For Each Without Select 
+                </h2>
+                <pre>
+                    <code>
+//USED FOR PLAIN OBJECTS, ARRAYS, ARRAY-LIKE OBJECTS. DONT USE THIS WITH JQUERY COLLECTIONS
+
+var obj = {
+    foo: 1,
+    bar: 2
+}
+
+$.each( obj, function( key, value ) {
+    sum += value;
+});
+ 
+console.log( sum ); // 3
+                    </code>
+                </pre>
+
+
+                <h2>
+                    JQeuery - Where Each isnt needed 
+                </h2>
+                <pre>
+                    <code>
+//YOU DONT NEED AN EACH WITH SOME FUNCTIONS AS THEY WORK ON MULTIPLE ELEMENTS IN ADDITION TO JUST A SINGLE ELEMENT
+
+$ ( ".drawer" ).hide();
+                    </code>
+                </pre>
+            </div>
+            <button type="button" class="drawer-header" id="events-header">Event Listeners</button>
+            <div class="drawer" id="events-drawer">
+                <p>Event listeners can be done 2 different ways, the preferred way is to use the .on function as it uses less memory and can be used with dynamically added elements.</p>
+                <h2>Vanilla js</h2>
+                <pre>
+                    <code class="vanilla">
+document.getElementById("update-btn").addEventListener("click", function() {
+    // CODE TO PERFORM HERE
+});
+                    </code>
+                </pre>
+                <h2>JQeuery</h2>
+                <pre>
+                    <code>
+//NO PARAMETER CALL THE HIDEELEMENT FUNCTION ON BUTTON CLICK
+
+$( document ).on("click", "#notice-btn", HideElement)
+
+
+//WITH PARAMETERS
+
+$( document ).on("click", "#notice-btn", {ElementID: "#notice-banner"}, HideElement)
+                    </code>
+                </pre>
+                <h2>
+                    JQeuery - For Each + Event Listeners
+                </h2>
+                <pre>
+                    <code>
+//WILL CALL THE TOGGLEDRAWER FOR EACH BUTTON CLICK WITH THE CLASS .drawer-header
+
+$( ".drawer-header" ).each(function() {
+    $( document ).on("click", "#" + this.id , ToggleDrawer)
+});
+                    </code>
+                </pre>
+            </div>
+
+            <button type="button" class="drawer-header" id="hide-header">Hide, Show, Toggle</button>
+            <div class="drawer" id="hide-drawer">
+                <h2>Vanilla - Hide</h2>
+                <pre>
+                    <code class="vanilla">
+//DAN J:
+// DISPLAY NONE IS A UTIL CLASS WITH DISPLAY: NONE; SET
+// I PREFERRED DOING IT THIS WAY DUE TO FLEXIBILITY
+
+document.getElementById("drawer").classListAdd("display-none")
+
+
+//OR THE QUICK WAY
+
+document.getElementById("drawer").style.display = "none"; 
+
+                    </code>
+                </pre>
+                <h2>JQuery - Hide</h2>
+                <pre>
+                    <code>
+$( "#drawer" ).hide()    
+                    </code>
+                </pre>
+                <h2>Vanilla - Show</h2>
+                <pre>
+                    <code class="vanilla">
+//DAN J: MY WAY
+
+document.getElementById("drawer").classListRemove("display-none")
+
+
+//QUICK WAY
+
+document.getElementById("drawer").classListAdd("display-none")
+
+                    </code>
+                </pre>
+                <h2>JQuery - Show</h2>
+                <pre>
+                    <code>
+$( "#drawer" ).show()    
+                    </code>
+                </pre>
+
+                <h2>JQuery - Toggle</h2>
+                <pre>
+                    <code>
+$( "#drawer" ).toggle()    
+                    </code>
+                </pre>
+                <h2>JQuery - Animated Toggle</h2>
+                <pre>
+                    <code>
+//NICE LITTLE ANIMATION ON THE TOGGLE AS SEEN IN THIS PAGE (TimeInMS)
+
+$( "#drawer" ).slideToggle(200)
+                    </code>
+                </pre>
+            </div>
+            <button type="button" class="drawer-header" id="ajax-header">AJAX</button>
+            <div class="drawer" id="ajax-drawer">
+                <p>Calling an API with AJAX is pretty easy, these examples do not have built in error checking however. There are a few different functions but .ajax() gives the most flexibility.</p>
+                <h2>JQuery -API Call With Errors</h2>
+                <pre>
+                    <code>
+$.ajax({
+    //REQUEST
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/users",
+    dataType: "json",
+    success: function (data, text) {
+
+        //WILL RUN ON SUCCESS
+        
+        //PUT CODE HERE
+          
+    },
+    error: function (request, status, error) {
+
+        //LOG ERROR INFO
+
+        console.log(request)
+        console.log(status)
+        console.log(error)
+    }
+})
+                    </code>
+                </pre>
+                <h2>JQuery - API Call (AJAX) - No Error handling</h2>
+                <pre>
+                    <code>
+//BASIC AJAX CALL
+
+   $.ajax({
+       //REQUEST
+
+       method: "GET", //GET IS DEFAULT
+       url: "https://jsonplaceholder.typicode.com/users", //PLACEHOLDER API
+       dataType: "json" //EXPECTING JSON DATA
+
+   }).done(function(data){ //WHEN THE CALL IS DONE
+       
+        //RESPONSE
+
+       $.each(data, function(i, user){
+            //CALL FUNCTION
+            AddUser(this)
+       })
+
+   });
+                    </code>
+                </pre>
+            </div>
+            <button type="button" class="drawer-header" id="css-header">Adjusting CSS</button>
+            <div class="drawer" id="css-drawer">
+                <h2>Vanilla JS adjusting CSS</h2>
+                <pre>
+                    <code class="vanilla">
+//ONE STYLE PROP AT A TIME
+var box = document.querySelector(".vanilla");
+box.style.color = "#000";
+box.style.backgroundColor = "#ffff00";
+                    </code>
+                </pre>
+                <h2>JQuery adjusting CSS</h2>
+                <pre>
+                    <code>
+// YOU CAN ADJUST MORE THAN 1
+// THIS ADJUSTS ALL INSTANCES OF THE .VANILLA CLASS
+
+$(".vanilla").css({
+  "color": "#000",
+  "background-color": "#ffff00"
+});
+                    </code>
+                </pre>
+            </div>
+
+            <button type="button" class="drawer-header" id="class-header">Adjusting Classes</button>
+            <div class="drawer" id="class-drawer">
+                <h2>Vanilla</h2>
+                <pre>
+                    <code class="vanilla">
+//SELECT THE FIRST ELEMENT WITH THE CLASS DRAWER
+
+var Drawer = document.querySelector(".drawer");
+
+//ADD
+
+Drawer.classList.add("red");
+
+//REMOVE
+
+Drawer.classList.remove("red");
+
+//TOGGLE
+
+Drawer.classList.toggle("red");
+
+                    </code>
+                </pre>
+              <h2>JQuery</h2>
+              <pre>
+                  <code>
+//THESE EFFECT ALL ELEMENTS WITH THE CLASS
+
+//ADD
+
+$( ".drawer" ).addClass("red")
+
+//Remove
+
+$( ".drawer" ).removeClass("red")
+
+//Toggle
+
+$( ".drawer" ).toggleClass("red")
+                  </code>
+              </pre>  
+            </div>
+            <button type="button" class="drawer-header" id="attr-header">Adjusting HTML Atributes</button>
+            <div class="drawer" id="attr-drawer">
+                <h2>Vanilla JS</h2>
+                <pre>
+                    <code class="vanilla">
+document.getElementById('example').setAttribute("href", "https://www.website.example")
+                    </code>
+                </pre>
+                <h2>JQuery</h2>
+                <pre>
+                    <code>
+$( "#example" ).attr( "href", "https://www.website.example" );
+
+//YOU CAN CHANGE MULTIPLE AT A TIME
+
+$( "#example" ).attr({
+    hreflang: "en",
+    href: "https://www.website.example"
+});
+                    </code>
+                </pre>
+            </div>
+            <button type="button" class="drawer-header" id="onready-header">Document Ready</button>
+            <div class="drawer" id="onready-drawer">
+                <p>Do Things when the page is fully loaded</p>
+                <h2>Vanilla JS</h2>
+                <pre>
+                    <code class="vanilla">
+
+var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+}
+
+ready(() => {
+
+    //CODE HERE 
+
+});
+                    </code>
+                </pre>
+                <h2>JQuery</h2>
+                <pre>
+                    <code>
+$(document).ready(function() {
+
+    //CODE HERE 
+
+});
+                    </code>
+                </pre> 
+                <h2>JQuery - Other Ways</h2>
+                <pre>
+                    <code>
+//SHORHAND
+$(function() {
+    console.log( "ready!" );
+});
+
+
+
+//SEPERATE FN
+
+function ReadyFN( jQuery ) {
+
+    //CODE HERE
+
+}
+    </code>
+    </pre>
+    <pre>
+    <code>
+//THEN CALL IT
+
+//CALL TYPE 1
+$( document ).ready( ReadyFN );
+
+//CALL TYPE 2
+$( window ).on( "load", ReadyFN);
+                    </code>
+                </pre>
+            </div>
+        </form>
+
+    </div>
+    <script src="master.js"></script> 
+</body>
+</html>

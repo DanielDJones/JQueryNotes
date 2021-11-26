@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dan JQeuery Test</title>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
+
+
+    <link rel="stylesheet" href="master.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>JQuery - Simple Search of Dynamicly Added Data</h1>
+        <p class="loose-text">This is brief document outlining some of the differences between vanilla JS and JQuery. To make it easier to translate between the two. <br><br>Please not that some code is taken from other sources and is just for untested reference.</p>
+        <button type="button" id="new-row">Random New 100</button>
+        <p>Current User: <b>John</b></p>
+        <table id="index-table">
+            <tr>
+                <th>File Path</th>
+                <th>Dev</th>
+                <th>Date Taken</th>
+                <!-- RANDOM ROWS HERE -->
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="name-search">
+                </td>
+                <td>
+                    <input type="text" id="phone-search">
+                </td>
+                <td>
+                    <input type="text" id="postcode-search">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="master.js"></script> 
+</body>
+</html>

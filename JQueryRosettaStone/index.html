@@ -158,6 +158,16 @@ $( document ).on("click", "#notice-btn", HideElement)
 //WITH PARAMETERS
 
 $( document ).on("click", "#notice-btn", {ElementID: "#notice-banner"}, HideElement)
+
+
+//THEN USE THE PASSED PARAMS IN A FUNC
+//THIS IS A WRAPER FUNCTION
+
+function FieldBoxEvent(event)
+{
+    //WRAP THE EVENT AND CALL FUNC
+    Check(event.data.ID)  
+}
                     </code>
                 </pre>
                 <h2>

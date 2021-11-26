@@ -1,0 +1,60 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("img/bg.jpg") no-repeat center center fixed;
+    object-fit: fill;
+    background-size: cover;
+    /* Prevens banner from blocking content */
+    padding-top: calc(2rem + 100px);
+}
+
+h1 {
+    color: #dddddd;
+    padding: 20px;
+    background: #1c1c1c;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.container {
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 800px;
+    width: 90%;
+    margin: 5px auto;
+    background-color: #dddddd;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    background: #1c1c1c;
+    color: #dddddd;
+    padding: 10px;
+}
+
+td {
+    background: #3c3c3c;
+    color: #dddddd;
+    padding: 10px;
+}
+
+.field {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input.error {
+    background-color: #ff3333;
+}
+
+label.error {
+    color: #ff3333;
+}
